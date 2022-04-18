@@ -8,10 +8,10 @@
     <form method="POST">
         @csrf
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Title</label>
-    <input type="text" class="form-control" id="title" aria-describedby="emailHelp">
-    <label for="exampleInputEmail1" class="form-label">Body</label>
-    <input type="text" class="form-control" id="body" aria-describedby="emailHelp">
+    <label for="title" class="form-label">Title</label>
+    <input name="title" type="text" class="form-control" id="title" aria-describedby="emailHelp">
+    <label for="body" class="form-label">Body</label>
+    <input name="body" type="text" class="form-control" id="body" aria-describedby="emailHelp">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

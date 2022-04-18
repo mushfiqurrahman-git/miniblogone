@@ -33,6 +33,8 @@ class PostController extends Controller
         $post->body = $request->body;
         $user->post()->save($post);
 
+        return redirect(route('post_index'));
+
     }
 
     /**
