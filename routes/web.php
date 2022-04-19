@@ -19,17 +19,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware(['auth'])->group(function(){
+    
+    Route::get('/post',[PostController::class,'index'])->name('post_index');
+    
+    Route::post('/post',[PostController::class,'create'])->name('psot_create');
+    
+    Route::get('/dashboard',[DashboardController::class,
+    'show_post'])->name('dashboard');
+    
+    Route::get('/dashboard', function () {
+    
+    return view('dashboard');})->name('dashboard');
+    
 
+});
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
-
-
-Route::get('/post',[PostController::class,'index'])->middleware(['auth'])->name('post_index');
-Route::post('/post',[PostController::class,'create'])->middleware(['auth'])->name('psot_create');
-Route::get('/dashboard',[DashboardController::class,
-'show_post'])->middleware(['auth'])->name('dashboard');
