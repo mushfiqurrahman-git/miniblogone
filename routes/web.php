@@ -21,16 +21,17 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function(){
     
-    Route::get('/post',[PostController::class,'index'])->name('post_index');
-    
-    Route::post('/post',[PostController::class,'create'])->name('psot_create');
-    
-    Route::get('/dashboard',[DashboardController::class,
-    'show_post'])->name('dashboard');
-    
     Route::get('/dashboard', function () {
     
     return view('dashboard');})->name('dashboard');
+    
+    Route::get('/post',[PostController::class,'index'])->name('post_index');
+    
+    Route::post('/post',[PostController::class,'create'])->name('post_create');
+    
+    Route::get('/dashboard',[DashboardController::class,'show_post'])->name('dashboard');
+    
+    
     
 
 });
