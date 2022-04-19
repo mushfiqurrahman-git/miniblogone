@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +31,5 @@ require __DIR__.'/auth.php';
 
 Route::get('/post',[PostController::class,'index'])->name('post_index');
 Route::post('/post',[PostController::class,'create'])->name('psot_create');
+Route::get('/dashboard',[DashboardController::class,
+'show_post'])->middleware(['auth'])->name('dashboard');
