@@ -11,9 +11,12 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     
                 @foreach ( $posts as $post )
-                    {{ $post -> title }}
-                    {{ $post -> body }}
-                    <br>
+                <tr>
+                    <td>{{ $post -> user -> name }}</td>
+                    <td>{{ $post -> title }}</td>
+                    <td>{{ $post -> body }}</td>
+                </tr>
+                <br>
                 @endforeach
                 </div>
             </div>

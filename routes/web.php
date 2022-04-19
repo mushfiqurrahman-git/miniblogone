@@ -29,7 +29,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('/post',[PostController::class,'index'])->name('post_index');
-Route::post('/post',[PostController::class,'create'])->name('psot_create');
+Route::get('/post',[PostController::class,'index'])->middleware(['auth'])->name('post_index');
+Route::post('/post',[PostController::class,'create'])->middleware(['auth'])->name('psot_create');
 Route::get('/dashboard',[DashboardController::class,
 'show_post'])->middleware(['auth'])->name('dashboard');
